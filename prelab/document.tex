@@ -68,7 +68,7 @@
 		= \frac{10\si{V}-(-10\si{V})}{0.5\si{V/\mu s}} = 40\si{\mu s}
 	\end{equation}
 	\subsection{Result comparison}
-	The time we read from the datasheet is the gap between the two yellow dots on figure[3]. It is $40\si{ms}$, so we have an error of $0.0\%$. Temperatures, or input resistance, can contribute to error between the theoretical value and actual value.
+	The time we read from the datasheet is the gap between the two marked lines on figure[3]. It is $40\si{ms}$, so we have an error of $0.0\%$. Temperatures, or input resistance, can contribute to error between the theoretical value and actual value.
 	\begin{figure}[!htbp]
 		\centering
 		\begin{framed}
@@ -108,9 +108,34 @@
 	Since the voltage of audio signals is typically under 2V, which is much lower than $15.9\si{V}$. Thus, we should not be concern about it.
 	
 	\section{\textbf{Prelab\#6}}
-	
+	\subsection{The equation for the circuit gain}
+	\begin{eqnarray}
+		V_{\mathrm{out}} & = & A_v(V_+-V_-) \\
+		V_- & = & V_{\mathrm{in}} \\
+		V_+ & = & V_{\mathrm{out}} \\
+		\mathrm{gain} = \frac{V_{\mathrm{out}}}{V_{\mathrm{in}}} & = & \frac{V_-}{V_+} = \frac{A_v}{1 + A_v}
+	\end{eqnarray}
+	\subsection{The value of $A_v$ when $V_{\mathrm{out}}/V_{\mathrm{in}}$ equal 0.5}
+	\begin{equation}
+		A_v = \frac{1}{1-\frac{V_{\mathrm{out}}}{V_{\mathrm{in}}}} - 1 = 1
+	\end{equation}
+	\subsection{The value of frequency when $V_{\mathrm{out}}/V_{\mathrm{in}}$ equal 0.5}
+	\begin{equation}
+		A(\si{dB}) = 20\log_{10}{A}
+	\end{equation}
+	\phantom{ } When $A_v=1$, $A$ is about $0\si{dB}$. According to the plot on the spec, $f_{A=0}$ is $7.6\times10^5\si{Hz}$.
+	\subsection{The range of gain for the audio signal}
+	We can find that $A_v$ is monotonic decreasing to frequency. Thus, with frequency in the range of $100\si{Hz}\sim5000\si{Hz}$, $A_v$ is range from $77\si{dB}$($7079$) down to $43.38\si{dB}$($147.5$). Then, we figure out the range of gain as:
+	\begin{equation}
+		\frac{V_{\mathrm{out}}}{V_{\mathrm{in}}} \in [0.99327, 0.99986]
+	\end{equation}
+	The difference is so small that it can be ignored. Also, the gain is very close to 1, so we can reasonably regard the amplifier as ideal.
 	
 	\section{\textbf{Prelab\#7}}
+	\subsection{The equation for $V_{\mathrm{out}}$ in the frequency domain}
+	Consider KCL at the 
+	\subsection{The expression for the magnitude of the output signal}
+	
 	\section{\textbf{Prelab\#8}}
 	\section{\textbf{Prelab\#9}}
 	\section{\textbf{Prelab\#10}}
