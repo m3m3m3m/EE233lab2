@@ -133,7 +133,14 @@
 	
 	\section{\textbf{Prelab\#7}}
 	\subsection{The equation for $V_{\mathrm{out}}$ in the frequency domain}
-	Consider KCL at the 
+	Consider KCL at the negative port of the amplifier:
+	\begin{equation}
+		\frac{0-V_1}{R_1} + \frac{0-V_2}{R_2} + \frac{0-V_3}{R_3} + \frac{0-V_{\mathrm{out}}}{R_f} + \frac{0-V_{\mathrm{out}}}{\frac{1}{\mathbf{j}\omega L}} = 0
+	\end{equation}
+	Finally, we got the equation for $V_{\mathrm{out}}$ as:
+	\begin{equation}
+		V_{\mathrm{out}} = \bigg(\frac{V_1}{R_1} + \frac{V_2}{R_2} + \frac{V_3}{R_3}\bigg) \frac{-R_f}{\mathbf{j}2\pi fCR_f+1}
+	\end{equation}
 	\subsection{The expression for the magnitude of the output signal}
 	
 	\section{\textbf{Prelab\#8}}
