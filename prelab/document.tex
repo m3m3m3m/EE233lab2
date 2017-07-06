@@ -21,7 +21,7 @@
 	\maketitle
 	
 	\section{\textbf{Prelab\#1}}
-	The typical values of parameters of \textit{LM148} are shown in table[\ref{tab:pl1}], figure[\ref{fig:101}], and figure[\ref{fig:102}].
+	The typical values of parameters of \textit{LM148} are shown in table[\ref{tab:pl1}], figure[1], and figure[2].
 	
 	\begin{table}[!htbp]
 		\centering
@@ -40,20 +40,20 @@
 	
 	\begin{figure}[!htbp]
 		\centering
+		\label{fig:101}
 		\begin{framed}
 			\includegraphics[width=\linewidth]{images/1_1.PNG}
 			\caption{Output impedance}
 		\end{framed}
-		\label{fig:101}
 	\end{figure}
 	
 	\begin{figure}[!htbp]
 		\centering
+		\label{fig:102}
 		\begin{framed}
 			\includegraphics[width=\linewidth]{images/1_2.PNG}
 			\caption{Open-loop voltage gain}
 		\end{framed}
-		\label{fig:102}
 	\end{figure}
 	
 	\section{\textbf{Prelab\#2}}
@@ -68,19 +68,48 @@
 		= \frac{10\si{V}-(-10\si{V})}{0.5\si{V/\mu s}} = 40\si{\mu s}
 	\end{equation}
 	\subsection{Result comparison}
-	The time we read from the datasheet is the gap between the two yellow dots on figure[\ref{fig:301}]. It is $40\si{ms}$, so we have no error. Temperatures, or input resistance, can contribute to error between the theoretical value and actual value.
+	The time we read from the datasheet is the gap between the two yellow dots on figure[3]. It is $40\si{ms}$, so we have an error of $0.0\%$. Temperatures, or input resistance, can contribute to error between the theoretical value and actual value.
 	\begin{figure}[!htbp]
 		\centering
 		\begin{framed}
 			\includegraphics[width=\linewidth]{images/3_1.PNG}
-			\caption{Open-loop voltage gain}
+			\caption{Large signal pulse response}
 		\end{framed}
-		\label{fig:301}
 	\end{figure}
 	
 	\section{\textbf{Prelab\#4}}
+	\subsection{The expression for the slope of the output voltage}
+	\begin{eqnarray}
+		\bigg|\frac{\mathrm{d}V_{\mathrm{out}}}{\mathrm{d}t}\bigg| & = & \bigg|\frac{\mathrm{d}V_{\mathrm{in}}}{\mathrm{d}t}\bigg| = \bigg|\frac{\mathrm{d}A\cos(\omega t + \phi)}{\mathrm{d}t}\bigg| \\
+		& = & A\omega|\sin(\omega t+\phi)| \\
+		& = & 2\pi Af|\sin(2\pi ft+\phi)|
+	\end{eqnarray}
+	\subsection{The maximum slope of output voltage}
+	\begin{equation}
+		\bigg|\frac{\mathrm{d}V_{\mathrm{out}}}{\mathrm{d}t}\bigg| = 2\pi Af|\sin(2\pi ft+\phi)| \le 2\pi Af
+	\end{equation}
+	\subsection{The maximum frequency}
+	\begin{eqnarray}
+		2\pi Af & \le & SlewRate = 0.5\si{V/\mu s} \\
+		f & \le & \frac{0.5\si{V/\mu s}}{2\pi A}
+	\end{eqnarray}
+	\subsection{The maximum amplitude}
+	\begin{eqnarray}
+		2\pi Af & \le & SlewRate = 0.5\si{V/\mu s} \\
+		A & \le & \frac{0.5\si{V/\mu s}}{2\pi f}
+	\end{eqnarray}
+	
 	\section{\textbf{Prelab\#5}}
+	\begin{eqnarray}
+		A_{f=100\si{Hz}} & \le & 795.8\si{V} \\
+		A_{f=5\si{KHz}} & \le & 15.9\si{V}
+	\end{eqnarray}
+		
+	Since the voltage of audio signals is typically under 2V, which is much lower than $15.9\si{V}$. Thus, we should not be concern about it.
+	
 	\section{\textbf{Prelab\#6}}
+	
+	
 	\section{\textbf{Prelab\#7}}
 	\section{\textbf{Prelab\#8}}
 	\section{\textbf{Prelab\#9}}
