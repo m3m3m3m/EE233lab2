@@ -69,6 +69,7 @@
 	\end{equation}
 	\subsection{Result comparison}
 	The time we read from the datasheet is the gap between the two marked lines on figure[3]. It is $40\si{ms}$, so we have an error of $0.0\%$. Temperatures, or input resistance, can contribute to error between the theoretical value and actual value.
+	
 	\begin{figure}[!htbp]
 		\centering
 		\begin{framed}
@@ -201,6 +202,36 @@
 	If the capacitor is removed, the magnitude of output voltage no longer depend on frequency. Because without 
 	the capacitor, the magnitude of the output voltage will become $\bigg(\frac{V_1}{R_1} + \frac{V_2}{R_2} + \frac{V_3}{R_3}\bigg)R_f$, where frequency cannot affect it. The capacitor brings reactive power into the circuit and changes the magnitude of the output voltage in the phasor domain.
 	\section{\textbf{Prelab\#10}}
+	We followed the tutorial and simulate our circuit. The simulate result is shown in graph[5].
+	\begin{figure}[!htbp]
+		\centering
+		\label{fig:1001}
+		\begin{framed}
+			\includegraphics[width=\linewidth]{images/10_1.PNG}
+			\caption{Simulate Result for Prelab \#10}
+		\end{framed}
+	\end{figure}
+	We used cursor to measure the time interval for the output to reach the steady state after an input transition, which is shown in graph[6].
+	\begin{figure}[!htbp]
+		\centering
+		\label{fig:1002}
+		\begin{framed}
+			\includegraphics[width=\linewidth]{images/10_1.PNG}
+			\caption{Cursor Measurement Result}
+		\end{framed}
+	\end{figure}
+	From the graph, we can easily tell that the time interval is 44.7284$\mu$s, which is very close to our result in Prelab \#3.\\
+	The two waveforms are very close, except that the output voltage in our simulate waveform is a little higher than the input voltage when it is in steady stage.\\
 	\section{\textbf{Prelab\#11}}
+	We built our circuit and simulate it according to the tutorial. Our result is shown in graph[7].\\
+	\begin{figure}[!htbp]
+		\centering
+		\label{fig:1101}
+		\begin{framed}
+			\includegraphics[width=\linewidth]{images/11_1.PNG}
+			\caption{Simulate Result for Prelab \#11}
+		\end{framed}
+	\end{figure}
+	We can see that the magnitude in two waveforms are very close, while the phase is a little bit different in high frequency. Our simulate result for phase doesn't slow down its declination greatly in high frequency while the one in Matlab does, it may be caused by the non-ideal feature of capacitor in high frequency.\\
 \end{document}
 
