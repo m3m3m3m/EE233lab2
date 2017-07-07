@@ -142,9 +142,64 @@
 		V_{\mathrm{out}} = \bigg(\frac{V_1}{R_1} + \frac{V_2}{R_2} + \frac{V_3}{R_3}\bigg) \frac{-R_f}{\mathbf{j}2\pi fCR_f+1}
 	\end{equation}
 	\subsection{The expression for the magnitude of the output signal}
-	
+	To compute the magnitude of $V_{\mathrm{out}}$, we have following procedures:\\
+	\begin{eqnarray}
+		|V_{\mathrm{out}}| & = & \bigg|\frac{V_1} {R_1}+\frac {V_2}{R_2}+\frac{V_3}{R_3}\bigg|
+		\frac{|-R_f|}{|\mathbf{j}2\pi fCR_f+1|}\\
+		& = & \bigg(\frac{|V_1|}{R_1} + \frac{|V_2|}{R_2} + \frac{|V_3|}{R_3}\bigg) \frac{R_f}{\sqrt{1+
+		4\pi^2C^2R_f^2f^2}}
+	\end{eqnarray}
 	\section{\textbf{Prelab\#8}}
+	\subsection{Find the expression for $V_{\mathrm{out}}$ if all the inputs are DC.}
+	When all the inputs are DC, we can easily derive to the conclusion that\\
+	\begin{equation}
+		|V_i| = V_i \mathrm{\ \ \ for\ } i = 1,2,3
+		f = 0
+	\end{equation}
+	Hence, we have the result that\\
+	\begin{equation}
+		|V_{\mathrm{out}}| = \bigg(\frac{V_1}{R_1} + \frac{V_2}{R_2} + \frac{V_3}{R_3}\bigg)R_f
+	\end{equation}
+	\subsection{Find the frequencies for 70\% the DC value}
+	We eliminate the $\bigg(\frac{V_1}{R_1} + \frac{V_2}{R_2} + \frac{V_3}{R_3}\bigg)$ part from both sides to save some space:\\
+	\begin{eqnarray}
+		 \frac{R_f}{\sqrt{1 + 4\pi^2C^2R_f^2f^2}}& = & 0.7 R_f\\
+		\sqrt{1 + 4\pi^2C^2R_f^2f^2} & = & \frac{10}{7}\\
+		4\pi^2C^2R_f^2f^2 & = & \frac{51}{49}\\
+		(f>0)\ f & = & \frac{\sqrt{51}}{14\pi CR_f}
+	\end{eqnarray}
+	\subsection{Find the frequencies for 50\%,30\%,10\% the DC value}
+	Let $k$ be the ratio of output voltage and input DC value, we can derive a formula from the computation in Prelab \#8b that:\\
+	\begin{equation}
+		f = \frac{\sqrt{k^{-1}-1}}{2\pi CR_f}
+	\end{equation}
+	So by simply changing the value of $k$, we can easily compute the frequencies:\\
+	\begin{eqnarray}
+		f_{50\%} = \frac{\sqrt{0.5^{-1}-1}}{2\pi CR_f} = \frac{1}{2\pi CR_f}\\
+		f_{30\%} = \frac{\sqrt{0.3^{-1}-1}}{2\pi CR_f} = \frac{\sqrt{\frac{7}{3}}}{2\pi CR_f}\\
+		f_{10\%} = \frac{\sqrt{0.1^{-1}-1}}{2\pi CR_f} = \frac{3}{2\pi CR_f}
+	\end{eqnarray} 
 	\section{\textbf{Prelab\#9}}
+	\subsection{Find $V_1$, $V_2$, and $V_3$ in the phasor domain.}
+	$\mathbf{@} f = 1\mathrm{kHz}$
+	\begin{eqnarray}
+		V_1 & = & 1\angle 0^{\circ}\\
+		V_2 & = & 0.1\angle -30^{\circ}\\
+		V_3 & = & 0.1\angle 30^{\circ}
+	\end{eqnarray}
+	\subsection{Plot the magnitude and phase of the output signal in the range from 10Hz to 1MHz.}
+	See our result from figure[4]\\
+	\begin{figure}
+		\centering
+		\label{fig:901}
+		\begin{framed}
+			\includegraphics[width=\linewidth]{images/9_1.PNG}
+			\caption{magnitude and phase of the output signal}
+		\end{framed}
+	\end{figure}
+	\subsection{Analysis when the capacitor is removed}
+	If the capacitor is removed, the magnitude of output voltage no longer depend on frequency. Because without 
+	the capacitor, the magnitude of the output voltage will become $\bigg(\frac{V_1}{R_1} + \frac{V_2}{R_2} + \frac{V_3}{R_3}\bigg)R_f$, where frequency cannot affect it. The capacitor brings reactive power into the circuit and changes the magnitude of the output voltage in the phasor domain.
 	\section{\textbf{Prelab\#10}}
 	\section{\textbf{Prelab\#11}}
 \end{document}
