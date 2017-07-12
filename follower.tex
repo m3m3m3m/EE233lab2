@@ -1,0 +1,43 @@
+\hfill \newline
+\phantom{ } We first built the circuit on our experimental board according to the circuit in figure[\ref{fig:1.1}].\\
+\begin{figure}[!htbp]
+	\centering %居中
+	\begin{framed}
+		\includegraphics[width=\linewidth]{images/1_1.PNG} %宽度，文件地址
+		\caption{Voltage follower schematic} %标题
+		\label{fig:1.1} %标记（引用时用）
+	\end{framed}
+	
+\end{figure}
+
+\phantom{ } Because our lab equipment can only provide DC source ranging from 0 to 30$ \si{\volt} $, and the op-amp needs a DC source of 12$ \si{\volt} $ and -12$ \si{\volt} $ to work, we will need to make two 12$ \si{\volt} $ DC sources and connect them in a serial. By setting the connecting point between them as the ground, we can get a pair of DC source that meets the requirement. Our on-board connecting schematic is shown in figure[\ref{fig:1.2}].\\
+\begin{figure}[!htbp]
+	\centering %居中
+	\begin{framed}
+		\includegraphics[width=\linewidth]{images/cir1.PNG} %宽度，文件地址
+		\caption{ Voltage follower schematic} %标题
+		\label{fig:1.2} %标记（引用时用）
+	\end{framed}
+\end{figure}
+
+\textbf{Analyze \#1:} \newline
+\phantom{ } Then we set the function generator correctly and get the result, which is shown in figure[3].\\
+%\begin{figure}[!htbp]
+%	\centering %居中
+%	\begin{framed}
+%		\includegraphics[width=\linewidth]{images/1_1.PNG} %宽度，文件地址
+%		\caption{ Voltage follower schematic} %标题
+%	\end{framed}
+%	\label{fig:1.1} %标记（引用时用）
+%\end{figure}
+
+\phantom{ } We used the cursor and measured the time needed for the output(CH2) to reach steady state after a drastic change in the input(CH1), which was 21.20$ \mu\si{\second} $. The slew rate is then:\\
+\begin{equation}
+	\mathrm{SlewRate} = \frac{\Delta \mathrm{V}}{\Delta t} = \frac{20.4\si{V}}{21.20\mu\si{s}} = 0.962\si{V/\mu s}
+\end{equation}
+
+\phantom{ } While in the data sheet, the slew rate is 0.5$ \si{V/\mu s} $. But in data sheet, the given slew rate is under the condition of $ \mathrm{V_s} = \pm15\si{V} $. In our experiment,  $ \mathrm{V_s} = \pm12\si{V} $, that is one of the reasons of the difference between these two slew rates.%TODO 还没想好怎么说
+
+\textbf{Analyze \#2:} \newline
+\phantom{ } We set the input signal to a sine wave with an amplitude of 3$ \si{\volt} $
+ and a frequency of 1$ \si{k\hertz} $. We observed that the follower's output signal followed the input signal perfectly. Then we gradually added the frequency of the input sine wave, and we observed some angels and straight lines in the output signal, which meant the output signal was distorted. We recorded the frequency, 
