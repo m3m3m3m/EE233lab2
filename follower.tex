@@ -18,26 +18,87 @@
 		\caption{ Voltage follower schematic} %标题
 		\label{fig:1.2} %标记（引用时用）
 	\end{framed}
-\end{figure}
+\end{figure}\\
 
 \textbf{Analyze \#1:} \newline
-\phantom{ } Then we set the function generator correctly and get the result, which is shown in figure[3].\\
-%\begin{figure}[!htbp]
-%	\centering %居中
-%	\begin{framed}
-%		\includegraphics[width=\linewidth]{images/1_1.PNG} %宽度，文件地址
-%		\caption{ Voltage follower schematic} %标题
-%	\end{framed}
-%	\label{fig:1.1} %标记（引用时用）
-%\end{figure}
+\phantom{ } Then we set the function generator correctly and get the result, which is shown in figure[\ref{fig:1.3}].\\
+\begin{figure}[!htbp]
+	\centering %居中
+	\begin{framed}
+		\includegraphics[width=\linewidth]{images/TEK0001.JPG} %宽度，文件地址
+		\caption{The oscilloscope waveform of the follower} %标题
+	\end{framed}
+	\label{fig:1.3} %标记（引用时用）
+\end{figure}
 
 \phantom{ } We used the cursor and measured the time needed for the output(CH2) to reach steady state after a drastic change in the input(CH1), which was 21.20$ \mu\si{\second} $. The slew rate is then:\\
 \begin{equation}
 	\mathrm{SlewRate} = \frac{\Delta \mathrm{V}}{\Delta t} = \frac{20.4\si{V}}{21.20\mu\si{s}} = 0.962\si{V/\mu s}
 \end{equation}
 
-\phantom{ } While in the data sheet, the slew rate is 0.5$ \si{V/\mu s} $. But in data sheet, the given slew rate is under the condition of $ \mathrm{V_s} = \pm15\si{V} $. In our experiment,  $ \mathrm{V_s} = \pm12\si{V} $, that is one of the reasons of the difference between these two slew rates.%TODO 还没想好怎么说
+\phantom{ } While in the datasheet, the slew rate is 0.5$ \si{V/\mu s} $. But in data sheet, the given slew rate is under the condition of $ \mathrm{V_s} = \pm15\si{V} $. After researching on the data sheet provided by the official website of TI, we noticed that the typical slew rate given in the data sheet was measured in a circuit (see figure[\ref{fig:1.4}]):\\
+\begin{figure}[!htbp]
+	\centering %居中
+	\begin{framed}
+		\includegraphics[width=\linewidth]{images/1_2.PNG} %宽度，文件地址
+		\caption{ Unity-Gain Amplifier } %标题
+		\label{fig:1.4} %标记（引用时用）
+	\end{framed}
+\end{figure}
+Which has two extra loads comparing with our circuit. The figure of the oscilloscope waveforms with those in the datasheet and SPICE program are shown in figure[\ref{fig:1.5}]and[\ref{fig:1.6}]:
+\begin{figure}[!htbp]
+	\centering %居中
+	\begin{framed}
+		\includegraphics[width=\linewidth]{images/1_3.PNG} %宽度，文件地址
+		\caption{ Oscilloscope waveform in datasheet } %标题
+		\label{fig:1.5} %标记（引用时用）
+	\end{framed}
+\end{figure}
+\begin{figure}[!htbp]
+	\centering %居中
+	\begin{framed}
+		\includegraphics[width=\linewidth]{prelab/images/10_1.PNG} %宽度，文件地址
+		\caption{ Oscilloscope waveform in SPICE program } %标题
+		\label{fig:1.6} %标记（引用时用）
+	\end{framed}
+\end{figure}
+\phantom{ } We can see that these waveforms are in similar shape, which is decided by the similar characteristic of LM148(displayed in datasheet) and LM348(the actual element we use).\\
 
 \textbf{Analyze \#2:} \newline
 \phantom{ } We set the input signal to a sine wave with an amplitude of 3$ \si{\volt} $
- and a frequency of 1$ \si{k\hertz} $. We observed that the follower's output signal followed the input signal perfectly. Then we gradually added the frequency of the input sine wave, and we observed some angels and straight lines in the output signal, which meant the output signal was distorted. We recorded the frequency, 
+ and a frequency of 1$ \si{k\hertz} $. We observed that the follower's output signal followed the input signal perfectly. Then we gradually added the frequency of the input sine wave, and we observed some angels and straight lines in the output signal, which meant the output signal was distorted. We recorded the frequency, which is around 32$ \si{k\hertz} $ (see figure[\ref{fig:1.5}]).\\
+ \begin{figure}[!htbp]
+ 	\centering %居中
+ 	\begin{framed}
+ 		\includegraphics[width=\linewidth]{images/TEK0003.JPG} %宽度，文件地址
+ 		\caption{ Distortion at frequency of  32$ \si{k\hertz} $} %标题
+ 		\label{fig:1.7} %标记（引用时用）
+ 	\end{framed}
+ \end{figure}
+\phantom{ } While in prelab, we have the following equations:\\
+\begin{eqnarray*}
+	f & \le & \frac{\mathrm{SlewRate}}{2\pi A}\\
+	f & \le & \frac{0.5\si{V/\mu s}}{2\pi \cdot 3\si{\volt}} = 26525.8\si{\hertz}\\
+\end{eqnarray*}
+\phantom{ } The two frequencies are very close, and we also recorded the figure of the waveform at the frequency of 27$ \si{\kilo\hertz} $, which also shows some distortion(see figure[\ref{fig:1.8}]).
+\begin{figure}[!htbp]
+	\centering %居中
+	\begin{framed}
+		\includegraphics[width=\linewidth]{images/TEK0006.JPG} %宽度，文件地址
+		\caption{ Distortion at frequency of  27$ \si{\kilo\hertz} $} %标题
+		\label{fig:1.8} %标记（引用时用）
+	\end{framed}
+\end{figure}
+
+\textbf{Analyze \#3:} \newline
+\phantom{ } Then we set the input signal to a sine wave with an amplitude of 100$ \si{\milli\volt} $ and a frequency of 10$ \si{\hertz} $. We checked that the follow worked well at this low frequency.\\
+\phantom{ } We gradually increased the frequency while keeping the amplitude same. When we reached the frequency of 2$ M\si{\hertz}$, we noticed that the voltage gain decreases to exactly half of the low-frequency gain(which is 1), see figure[\ref{fig:1.9}].\\
+\begin{figure}[!htbp]
+	\centering %居中
+	\begin{framed}
+		\includegraphics[width=\linewidth]{images/TEK0007.JPG} %宽度，文件地址
+		\caption{ Waveform with half of the low-frequency gain } %标题
+		\label{fig:1.9} %标记（引用时用）
+	\end{framed}
+\end{figure}
+\phantom{ } The gain at low frequency is 1, which means the output amplitude is the same as the input amplitude. When the frequency reaches 2$ \si{M\hertz} $, the voltage gain is exactly the half of the low-frequency gain. But the theoretical frequency of half gain is $7.6\times10^5\si{Hz}$. The two frequency is different because the element we use is LM348, while the known characteristics given in the datasheet are of LM148 and LM149. Also, the frequency on the plot is in logarithm scale, which can lead to huge difference with a little error.
